@@ -76,6 +76,7 @@ app.post("/register",(req,res)=>{
    
 })
 
+//redirect to dashboard if user had login
 app.get("/login",redirectToDashboardIfLogged,(req,res)=>{
     res.render('login',{error:""})
 })
@@ -95,7 +96,7 @@ app.post("/login",(req,res)=>{
 })
 
 
-
+//redirect to login if user havent login
 app.get("/dashboard",loginRequired,(req,res,next)=>{
   
 
@@ -113,6 +114,7 @@ app.get("/dashboard",loginRequired,(req,res,next)=>{
     })
 })
 
+//destroy session and clear cookie in response then go to home page
 app.get("/logout",(req,res)=>{
     req.session.destroy(null)
     res.clearCookie("session",{path:'/'})
