@@ -1,0 +1,14 @@
+include base.pug
+form(method='post', class="container form-container")
+    h1 Login
+    div(class="my-2 row")
+        label(class="col-6") Email:
+        input(class="col-6",name="email",type="email",required)
+    div(class="my-2 row")
+        label(class="col-6") Password:
+        input(class="col-6",name="password",type="password",required)
+    div #{error}
+    div(class="my-2 row")
+        button(type="submit", class="btn btn-primary") Submit
+        a(href="/register",class="text-center") Register
+        a(href="/",class="text-center") Home
